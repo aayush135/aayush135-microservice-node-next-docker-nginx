@@ -1,7 +1,8 @@
-import mongoose from "mongoose";
 import routes from "../src/routes";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import mongooseUser from '../src/db/user/user.Mongoose'
+import mongooseSession from '../src/db/session/session.Mongoose'
 
 export default (app) => {
   
@@ -17,19 +18,9 @@ export default (app) => {
 
   routes(app);
 
-  mongoose.connect(
-    "mongodb://mongodb:27017/MERN-APP",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    },
-    (err) => {
-      if (err) {
-        console.error("FAILED TO CONNECT MONGODB");
-        console.error(err);
-      } else {
-        console.log("CONNECTED TO MONGODB");
-      }
-    }
-  );
+  mongooseUser()
+mongooseSession()
+
+
+
 };

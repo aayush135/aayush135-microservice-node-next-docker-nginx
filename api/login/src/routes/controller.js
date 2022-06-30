@@ -1,7 +1,7 @@
-import sendEmail from "../../utils/sendEmail";
-import { createToken } from "../../utils/tokenOperations";
-import User from "../user/model.user";
-import Session from "./model.session";
+import sendEmail from "../utils/sendEmail";
+import { createToken } from "../utils/tokenOperations";
+import User from "../db/user/model.user";
+import Session from "../db/session/model.session";
 
 /* login users */
 export const login = async (req, res) => {

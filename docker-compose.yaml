@@ -11,15 +11,15 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
 
-  # login:
-  #   build: ./api/login
-  #   ports:
-  #     - 5051:5051
-  #   volumes:
-  #     - ./api/login:/app
-  #     - /app/node_modules
-  #   environment:
-  #     - CHOKIDAR_USEPOLLING=true
+  login:
+    build: ./api/login
+    ports:
+      - 5051:5051
+    volumes:
+      - ./api/login:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
 
   # logout:
   #   build: ./api/logout
@@ -84,7 +84,7 @@ services:
   nginx:
     depends_on:
       - fibonacci
-      # - login
+      - login
       # - logout
       - signup
       # - user

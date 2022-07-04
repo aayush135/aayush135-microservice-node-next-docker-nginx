@@ -10,6 +10,14 @@ RUN npm i
 
 COPY . .
 
+WORKDIR /app/src/db/session
+RUN npm i
+
+WORKDIR /app/src/db/user
+RUN npm i
+
+WORKDIR /app
+
 EXPOSE 5051
 
 CMD ["npm","run","dev"]
